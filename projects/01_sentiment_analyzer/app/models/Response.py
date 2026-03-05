@@ -1,8 +1,9 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
+from typing import Any
 
 @dataclass
 class Response:
-    response: str
+    response: Any  # Can be string or JSON object (dict)
     prompt_tokens: int
     response_tokens: int
     response_time: float  # in seconds

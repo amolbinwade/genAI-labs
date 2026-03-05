@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
 
 class LLMRequest(BaseModel):
-    prompt: str = Field(
+    review: str = Field(
         ...,
         max_length=1000,
-        description="Prompt text (maximum 1000 characters)"
+        description="Product review text to analyze (maximum 1000 characters)"
     )
