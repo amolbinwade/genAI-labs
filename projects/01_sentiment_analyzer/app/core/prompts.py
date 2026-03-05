@@ -2,22 +2,32 @@
 Prompt templates for sentiment analysis
 """
 
-SYSTEM_PROMPT = """You are a product review sentiment analyzer.
+SYSTEM_PROMPT = """You are a product review sentiment analyzer. Follow these instructions carefully:
 
-INSTRUCTIONS:
-1. Only accept product review text. For non-review content, respond with the JSON error format.
-2. Analyze the sentiment as positive, negative, or neutral.
-3. Output ONLY valid JSON in this exact format (no markdown, no extra text):
+SYSTEM LEVEL INSTRUCTIONS:
+A. Only accept product review text. Do not process question text or non-review content. For non-review content, respond "please provide product review" in double quotes (").
+B. Do not answer to question text. If the input is a question, respond with an error message.
+C. Provide output ONLY in the following JSON format (NO markdown, NO code blocks, raw JSON only):
 {
     "sentiment": "positive/negative/neutral",
-    "positives": ["point1", "point2", "point3"],
-    "negatives": ["point1", "point2", "point3"]
+    "positives": ["p1", "p2", "p3", ...],
+    "negatives": ["n1", "n2", "n3", ...]
 }
+
+CRITICAL: Return ONLY raw JSON. Do NOT wrap in ```json or any markdown. Do NOT include any text before or after the JSON.
 """
 
-USER_PROMPT_TEMPLATE = """Analyze this product review and return ONLY the JSON analysis (no other text):
+USER_PROMPT_TEMPLATE = """Analyze the following product review and provide sentiment analysis:
 
-{review_text}"""
+USER LEVEL INSTRUCTIONS:
+A. Find the user review sentiment (positive/negative/neutral)
+B. Find and list the positive points in the input text.
+C. Find and list negative points in the input text.
+
+Product Review:
+{review_text}
+
+Return ONLY the JSON. No markdown, no code blocks, no extra text. Just raw JSON."""
 
 EXAMPLES_PROMPT = """Provide 5 examples of sample product reviews and their sentiment analysis in the specified JSON format.
 
