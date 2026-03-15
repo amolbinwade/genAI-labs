@@ -13,7 +13,7 @@ Return ONLY valid JSON in this format:
 }
 
 If the input is not a product review, return:
-{"error":"please provide product review"}
+{"error":"please provide product review only"}
 """
 
 USER_PROMPT_TEMPLATE = """
