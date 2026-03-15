@@ -7,7 +7,7 @@ A prompt-based genAI-driven product review sentiment analyzer that leverages lar
 This application uses generative AI models to provide advanced sentiment analysis capabilities, extracting meaningful insights from product reviews with contextual understanding and nuanced interpretation.
 
 ### Technical Features
-- **Rate Limiting**: Custom in-memory rate limiter using Python's threading.Lock, allowing one request per minute per client to prevent abuse.
+- **Rate Limiting**: Custom in-memory rate limiter using FastAPI's router dependencies (similar to request Filters in Java servlets or Spring), allowing one request per minute per client to prevent abuse.
 - **Input Validation**: Pydantic models for request validation, including character limits (max 1000 characters for review text).
 - **Output Format**: Structured JSON responses using Pydantic models, including token counts and response times.
 - **Tech Stack**: Built with Python, FastAPI for the API framework, Google Gemini AI for sentiment analysis, Docker for containerization and Google GCP cloud for deployment.
