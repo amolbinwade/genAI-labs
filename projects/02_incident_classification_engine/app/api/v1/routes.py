@@ -13,7 +13,7 @@ service = GeminiService()
 def generate_text(request: LLMRequest):
 
     start_time = time.perf_counter()  # High precision timer
-    response = service.generate_response(request.review)
+    response = service.generate_response(request.complaint)
     end_time = time.perf_counter()
     response_time = round(end_time - start_time, 4)  # seconds
 

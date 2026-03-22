@@ -157,10 +157,10 @@ gcloud run deploy sentiment-analyzer \
   --port 8000 \
   --cpu 0.5 \
   --memory 256Mi \
-  --max-instances 2 \
+  --max-instances 1 \
   --concurrency 1 \
   --set-secrets GEMINI_API_KEY=gemini-api-key:latest \
-  --set-env-vars MODEL_NAME=emini-2.5-flash
+  --set-env-vars MODEL_NAME=gemini-2.5-flash
   ```
 
 ### Step#10 : Delete service when not in use

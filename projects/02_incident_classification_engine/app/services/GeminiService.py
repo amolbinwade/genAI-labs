@@ -16,13 +16,13 @@ class GeminiService:
 
         self.config = GenerateContentConfig(
             temperature=0.0,
-            max_output_tokens=500,
+            max_output_tokens=2000,
             response_mime_type="application/json"
         )
 
-    def generate_response(self, review_text: str) -> Response:
+    def generate_response(self, complaint_text: str) -> Response:
 
-        user_prompt = USER_PROMPT_TEMPLATE.format(review_text=review_text)
+        user_prompt = USER_PROMPT_TEMPLATE.format(complaint_text=complaint_text)
         full_prompt = f"{SYSTEM_PROMPT}\n\n{user_prompt}"
 
         response = self.client.models.generate_content(
